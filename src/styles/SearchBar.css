@@ -1,0 +1,35 @@
+.search-container {
+    width: 100%;
+    max-width: 410px;
+    height: 50px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.search-container input  {
+    width: 90%;
+    height: 100%;
+    font-size: 2.0rem;
+    padding: 0 20px;
+    font-weight: 400;
+}
+
+.search-container input:focus {
+    outline: none;
+}
+
+.search-container button {
+    width: 100px;
+    height: 50px;
+}
+
+.bx-search {
+    font-size: 2.4rem;
+}
+
+@media (min-width: 937px) {
+    .search-container {
+        max-width: 840px;
+    }
+}

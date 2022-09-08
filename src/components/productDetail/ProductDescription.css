@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+img {
+    width: 100%;
+}
+
+.product-info-cont {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 40px;
+    margin-top: calc(50vh - 419px);
+}
+
+.product-info__child {
+    width: 100%;
+    max-width: 500px;
+}
+
+.product-info__img {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-info__img-cont {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.product-info__moreIMGS-cont {
+    display: none;
+}
+
+.moreIMG-cont {
+    width: 50px;
+    height: 100%;
+    display: flex;
+
+}
+
+.product-info__desc {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-info__desc h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.product-info__desc p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.product-info__price-quantity-cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price-cont,
+.quantity-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.price-cont h3,
+.quantity-cont h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.price-cont span {
+    font-size: 2.0rem;
+    font-weight: 600;
+}
+
+.quantity-btns {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border: 1px solid black;
+}
+
+.quantity-btns button {
+    width: 40px;
+    border: none;
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+.quantity-btns span {
+    width: 40px;
+    text-align: center;
+    font-size: 1.6rem;
+    align-self: center;
+}
+
+.cart-btn-cont {
+    display: flex;
+    justify-content: center;
+}
+
+.cart-btn-cont button {
+    width: 100%;
+    height: 50px;
+    font-size: 2.0rem;
+    cursor: pointer;
+}
+
+.bx-cart-add {
+    font-size: 2.0rem;
+}
+
+.cart-btn__text {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
+@media (min-width: 1080px) {
+    .product-info__moreIMGS-cont {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+}
