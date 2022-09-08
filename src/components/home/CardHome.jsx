@@ -1,10 +1,14 @@
 import axios from 'axios'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { setProductToCart } from '../../store/slices/productToCart'
 import '../../styles/CardHome.css'
 import getConfig from '../../utils/getConfig'
 
 const CardHome = ({ product }) => {
+
+   const dispatch = useDispatch()
 
     const navigate = useNavigate()
 
@@ -20,8 +24,11 @@ const CardHome = ({ product }) => {
         }
 
         axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/cart', obj, getConfig())
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err.response.data.message))
+            .then(res => {
+                console.log(res.data)
+                dispatch(setProductToCart())
+            })
+            .catch(err => console.log(err))
     }
 
 

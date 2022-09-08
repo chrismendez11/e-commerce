@@ -4,10 +4,14 @@ import ProductCartInfo from '../cart/ProductCartInfo'
 import axios from 'axios'
 import '../../styles/Cart.css'
 import getConfig from '../../utils/getConfig'
+import { useSelector } from 'react-redux'
 
 const Cart = () => {
 
   const [cartProducts, setCartProducts] = useState()
+  const [totalPrice, setTotalPrice] = useState()
+
+  const productToCart = useSelector(state => state.productToCart)
 
   const getAllProductsCart = () => {
     axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/cart', getConfig())
@@ -17,7 +21,7 @@ const Cart = () => {
 
   useEffect(() => {
     getAllProductsCart()
-  }, [])
+  }, [productToCart])
 
   const handleCheckout = () => {
     const obj = {
@@ -27,7 +31,7 @@ const Cart = () => {
       city: "USA",
       references: "Some references"
     }
-    axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/purchases', obj, getConfig())
+    axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/purchases', obj, getConfig())
       .then(res => {
         console.log(res.data)
         getAllProductsCart()
@@ -46,7 +50,7 @@ const Cart = () => {
       <footer className='cart__footer'>
         <div className='cart__footer-text'>
           <span className='cart__total-global'>Total:</span>
-          <p className='cart__total-global-value'>$1350</p>
+          <p className='cart__total-global-value'>$00.00</p>
         </div>
         <button onClick={handleCheckout} className='cart__btn'>Checkout</button>
       </footer>

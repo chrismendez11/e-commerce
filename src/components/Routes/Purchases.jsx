@@ -1,23 +1,36 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import axios from 'axios'
+import getConfig from '../../utils/getConfig'
+import PurchaseCard from '../purchases/PurchaseCard'
+import '../../styles/Purchases.css'
 
 const Purchases = () => {
+
+  const [purchases, setPurchases] = useState()
+
+    useEffect(() => {
+        axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/purchases', getConfig())
+            .then(res => setPurchases(res.data.data.purchases))
+            .catch(err => console.log(err))
+    }, [])
+
   return (
     <section className='purchases-section'>
-      <div>
+      <div className='purchases__title'>
         <span>Home</span>
+        <i class='bx bx-dots-vertical-rounded'></i>
         <span>Purchases</span>
       </div>
       <h2>My purchases</h2>
-      <article className='purchase-cont'>
-        <div>
-          <h3>September 7, 2022</h3>
-        </div>
-        <div>
-          <h4>Samsung Galaxy S22</h4>
-          <span>1</span>
-          <span>$850</span>
-        </div>
-      </article>
+      <div className='purchases-card__cont'>   
+      {
+        purchases?.map(purchase => (
+          <PurchaseCard key={purchase.id} purchase={purchase}/>
+        ))
+      }
+      </div>  
     </section>
   )
 }

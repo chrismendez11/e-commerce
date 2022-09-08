@@ -1,0 +1,42 @@
+.purchase-cont {
+    width: 100%;
+    border: 1px solid #DDDD;
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.purchase-date-cont {
+    width: 100%;
+    height: auto;
+}
+
+.purchase-date-cont h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.purchases-products-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.purchases-products__details {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.purchases-products__details h4 {
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.purchases-products__details span {
+    font-size: 1.6rem;
+    font-weight: 500;
+}

@@ -1,0 +1,37 @@
+.purchases-section {
+    width: 100%;
+    height: auto;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.purchases-card__cont {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.purchases__title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.purchases__title span {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.bx-dots-vertical-rounded {
+    font-size: 1.8rem;
+    color: brown;
+}
+
+.purchases-section h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
