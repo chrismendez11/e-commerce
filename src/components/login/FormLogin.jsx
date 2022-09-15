@@ -27,6 +27,11 @@ const FormLogin = () => {
   return (
     <form onSubmit={handleSubmit(submit)} className='login__form'>
         <h2>Welcome! Enter your email and password to continue</h2>
+        <div className='credentials-cont'>
+            <h3>Test Data</h3>
+            <p>Email: <span>chris11@gmail.com</span></p>
+            <p>Password: <span>pass12345</span></p>
+        </div>
         <div className='login-cont login__email'>
             <label htmlFor="email">Email</label>
             <input {...register('email')} type="email" id="email" />

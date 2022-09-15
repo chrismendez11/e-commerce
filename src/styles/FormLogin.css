@@ -55,3 +55,28 @@
 .bxs-circle {
     color: green;
 }
+
+.credentials-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 20px;
+    border-radius: 2px;
+    background-color: #DFF6FF;
+}
+
+.credentials-cont h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.credentials-cont p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.credentials-cont span {
+    font-style: normal;
+}
