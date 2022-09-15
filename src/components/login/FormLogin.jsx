@@ -1,16 +1,21 @@
 import axios from 'axios'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
+import { setIsLogged } from '../../store/slices/isLogged.slice'
 import '../../styles/FormLogin.css'
 
 const FormLogin = () => {
 
     const {register, handleSubmit, reset } = useForm()
 
+    const dispatch = useDispatch()
+
     const submit = data => {
         axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/users/login', data)
             .then(res => {
                 localStorage.setItem('token', res.data.data.token)
+                dispatch(setIsLogged())
             })
             .catch(err => console.log(err))
         // reset({

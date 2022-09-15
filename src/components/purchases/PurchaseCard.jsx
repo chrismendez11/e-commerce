@@ -3,11 +3,14 @@ import '../../styles/PurchaseCard.css'
 
 const PurchaseCard = ({purchase}) => {
 
-  console.log(purchase)
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+  const date = new Date(purchase.createdAt)
+
   return (
     <article className='purchase-cont'>
         <div className='purchase-date-cont'>
-          <h3>{purchase.createdAt}</h3>
+          <h3>{`${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</h3>
         </div>
           {
             purchase.cart.products.map(product => (
