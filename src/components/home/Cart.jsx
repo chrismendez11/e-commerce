@@ -8,10 +8,10 @@ import { useSelector } from 'react-redux'
 
 const Cart = () => {
 
-  const [cartProducts, setCartProducts] = useState()
-  const [totalPrice, setTotalPrice] = useState(0)
+  const [cartProducts, setCartProducts] = useState()  // array that includes all products in cart
+  const [totalPrice, setTotalPrice] = useState(0) // total price of all products in cart
 
-  const productToCart = useSelector(state => state.productToCart)
+  const productToCart = useSelector(state => state.productToCart) // state to render cart every time a product is added to cart
 
   const getAllProductsCart = () => {
     axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/cart', getConfig())
@@ -21,13 +21,16 @@ const Cart = () => {
     .catch(err => setCartProducts())
   }
 
+  // useEffect in order to upload the product on the cart
   useEffect(() => {
-    getAllProductsCart()
+      getAllProductsCart()
   }, [productToCart])
 
-  // useEffect in order to add totalprice
+  // useEffect in order to add totalprice when info from cartProducts is uploaded
   useEffect(() => {
-    handleTotalPrice()
+    if (cartProducts) {
+      handleTotalPrice()
+    }
   }, [cartProducts])
 
   const handleCheckout = () => {
@@ -47,11 +50,12 @@ const Cart = () => {
       .catch(err => console.log(err.response.data.message))
   }
 
-  const handleTotalPrice = () => {
+  const handleTotalPrice = () => { 
+    let total = 0
     cartProducts?.map(product => {
-      setTotalPrice(totalPrice + +product.price)
-      console.log(product)
+      total += product.price * product.productsInCart.quantity
     })
+    setTotalPrice(total)
   }
 
   return (

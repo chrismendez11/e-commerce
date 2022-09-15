@@ -26,7 +26,7 @@ const ProductCartInfo = ({product, getAllProductsCart}) => {
                 <span className='cart__quantity'>{product.productsInCart.quantity}</span>
                 <div className='cart__total-cont'>
                     <span className='cart__total-label'>Total:</span>
-                    <p className='cart__total-number'>${product.price}</p>
+                    <p className='cart__total-number'>${product.productsInCart.quantity * product.price}</p>
                 </div>
             </footer>
         </article>
